@@ -9,7 +9,7 @@ export default function ShopPage() {
 
   const filteredCars = filter === 'All' 
     ? CARS 
-    : CARS.filter(car => car.type === filter);
+    : CARS.filter(car => car.brand === filter);
 
   return (
     <main className="pt-32 pb-24 bg-white min-h-screen">
@@ -64,7 +64,7 @@ export default function ShopPage() {
                   <div className="flex justify-between items-center">
                     <div>
                       <h2 className="text-lg font-black uppercase tracking-tight">{car.name}</h2>
-                      <p className="text-sm text-zinc-500 font-bold uppercase tracking-widest">{car.type} • {car.mileage}</p>
+                      <p className="text-sm text-zinc-500 font-bold uppercase tracking-widest">{car.brand} • {car.mileage}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-lg font-black text-blue-600">₦{car.price}</p>
