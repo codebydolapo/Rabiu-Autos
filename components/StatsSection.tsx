@@ -10,7 +10,8 @@ const STATS = [
 ];
 
 export default function StatsSection() {
-  const container = useRef(null);
+  // Added proper typing to the container ref
+  const container = useRef<HTMLElement>(null);
   const numberRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   useGSAP(() => {
@@ -18,7 +19,6 @@ export default function StatsSection() {
       const target = numberRefs.current[i];
       if (!target) return;
 
-      // Create a temporary object to hold the current count
       const obj = { count: 0 };
 
       gsap.to(obj, {
@@ -27,11 +27,10 @@ export default function StatsSection() {
         ease: "power2.out",
         scrollTrigger: {
           trigger: target,
-          start: "top 85%", // Starts when the stat is near the bottom of the screen
+          start: "top 85%",
           toggleActions: "play none none none",
         },
         onUpdate: () => {
-          // Update the text directly to avoid React state lag
           target.innerText = obj.count.toFixed(stat.decimals || 0);
         }
       });
@@ -45,7 +44,7 @@ export default function StatsSection() {
           {STATS.map((stat, i) => (
             <div key={i} className="space-y-2">
               <div className="text-5xl lg:text-7xl font-black tracking-tighter flex justify-center items-baseline">
-                <span ref={(el) => (numberRefs.current[i] = el)}>0</span>
+                <span ref={(el) => { numberRefs.current[i] = el; }}>0</span>
                 <span className="text-blue-500">{stat.suffix}</span>
               </div>
               <p className="text-zinc-400 uppercase tracking-widest text-sm font-bold">
