@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef, useEffect, useCallback } from 'react'; // Added useEffect and useCallback
-import gsap from 'gsap';
+import { gsap } from "@/lib/gsap";
 import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
 import { CarColor } from '@/types/CarColor';

@@ -1,7 +1,7 @@
 // src/components/ThumbnailGallery.tsx
 "use client";
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from "@/lib/gsap";
 
 const CAR_PREVIEWS = [
   { id: 1, label: "Interior View", img: "/hero-car-blue.png" },

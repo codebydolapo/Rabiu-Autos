@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from "@/lib/gsap";
 
 export default function FinanceCalculator() {
   const [price, setPrice] = useState(3000000);

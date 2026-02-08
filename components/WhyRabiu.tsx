@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from "@/lib/gsap";
 import { useGSAP } from '@gsap/react';
 
 export default function WhyRabiu() {
